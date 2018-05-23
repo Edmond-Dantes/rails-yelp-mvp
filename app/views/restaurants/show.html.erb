@@ -1,20 +1,37 @@
-<% r = @restaurant %>
-<h1 class="text-center"><%= r.name %></h1>
+<h1 class="text-center"><%= @restaurant.name %></h1>
 
 <ul class="list-unstyled text-center">
   <li>
-    <%= r.address %>
+    <%= @restaurant.address %>
   </li>
 
   <li>
-    <%= r.phone_number %>
+    <%= @restaurant.phone_number %>
   </li>
 
   <li>
-    <%= r.category %>
+    <%= @restaurant.category.capitalize %>
+  </li>
+
+  <ul class="list-unstyled text-center">
+    <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.content %>
+      <li>
+        <%= review.rating %>
+      </li>
+    </li>
+    <% end %>
+  </ul>
+
+  <br>
+
+  <li>
+    <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
   </li>
 
   <br>
+
   <li>
     <%= link_to "Back to list", restaurants_path %>
   </li>
