@@ -2,32 +2,38 @@
 
 <ul class="list-unstyled text-center">
   <li>
-    <%= @restaurant.address %>
+   Address:  <%= @restaurant.address %>
   </li>
 
   <li>
-    <%= @restaurant.phone_number %>
+   Phone #:  <%= @restaurant.phone_number %>
   </li>
 
   <li>
-    <%= @restaurant.category.capitalize %>
+   Type:  <%= @restaurant.category.capitalize %>
   </li>
 
-  <ul class="list-unstyled text-center">
-    <% @restaurant.reviews.each do |review| %>
-    <li>
-      <%= review.content %>
-      <li>
-        <%= review.rating %>
-      </li>
-    </li>
-    <% end %>
-  </ul>
-
+  <h2>REVIEWS: </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <ol>
+          <% @restaurant.reviews.each do |review| %>
+          <li>
+            <%= review.content %>
+            <li>
+              <%= review.rating %>
+            </li>
+          </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
   <br>
 
   <li>
-    <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
+    <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-info" %>
   </li>
 
   <br>
