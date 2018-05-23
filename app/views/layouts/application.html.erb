@@ -15,6 +15,51 @@
   </head>
 
   <body>
+
+    <div class="navbar-wagon">
+      <!-- Logo -->
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+        <%= image_tag "https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png", height: 50 %>
+      <% end %>
+
+      <!-- Right Navigation -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+        <!-- Links -->
+        <%= link_to "Restaurants", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Add a restaurant", new_restaurant_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+        <!-- Avatar with dropdown menu -->
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <%= image_tag "https://pbs.twimg.com/profile_images/980145664712740864/aNWjR7MB_400x400.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li>
+                <%= link_to restaurants_path do %>
+                  <i class="fas fa-list-ul"></i> <%= t(".restaurants", default: "Restaurants") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_restaurant_path do %>
+                  <i class="fas fa-plus"></i>  <%= t(".new_restaurant", default: "Add a new restaurant") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Dropdown list appearing on mobile only -->
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+        <div class="dropdown">
+          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><%= link_to "Restaurants", restaurants_path %></li>
+            <li><%= link_to "Add a new restaurant", new_restaurant_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>
