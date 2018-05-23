@@ -1,0 +1,17 @@
+<h1 class="text-center">Restaurants</h1>
+<ul class="list-unstyled text-center">
+
+  <% @restaurants.each do |restaurant| %>
+
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    </li>
+
+  <% end %>
+  <br>
+  <%= link_to "Discovered a new place? Tell us about it here!", new_restaurant_path, class: "btn btn-primary" %>
+</ul>
+
+
+
+

@@ -1,0 +1,22 @@
+<% r = @restaurant %>
+<h1 class="text-center"><%= r.name %></h1>
+
+<ul class="list-unstyled text-center">
+  <li>
+    <%= r.address %>
+  </li>
+
+  <li>
+    <%= r.phone_number %>
+  </li>
+
+  <li>
+    <%= r.category %>
+  </li>
+
+  <br>
+  <li>
+    <%= link_to "Back to list", restaurants_path %>
+  </li>
+</ul>
+
